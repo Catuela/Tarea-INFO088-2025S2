@@ -32,9 +32,19 @@ int main() {
     auto tiempo = end - start;
     cout << "tiempo de construccion para " << n << " entradas: " << chrono::duration_cast<chrono::microseconds>(tiempo).count() << " microsegundos" << endl;
     // Prueba simple de búsqueda
-    string test = dominios[n / 2];
+    chrono::time_point<chrono::system_clock> inicio, fin; //armando medicion tiempo busqueda
+
+    inicio = chrono::system_clock::now(); //inciando tiempo de busqueda
+
+    string test = dominios[rand() % n];
     cout << "Buscando: " << test << "\n";
     cout << "IP encontrada: " << dns.buscar(test) << "\n";
+
+    fin = std::chrono::system_clock::now(); //terminando tiempo de busqueda
+
+    auto tiempoBusqueda = fin - inicio;
+    cout << "tiempo de busqueda para " << n << " entradas: " << chrono::duration_cast<chrono::microseconds>(tiempoBusqueda).count() << " microsegundos" << endl;
+
 
     return 0;
 } 
