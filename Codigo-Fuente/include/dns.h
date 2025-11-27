@@ -16,6 +16,8 @@ private:
 public:
     void insertar(const std::string &dominio, const std::string &ip);
     std::string buscar(const std::string &dominio);
+    std::string buscarSecuencial(const std::string &dominio);
+    std::string busquedaBinaria(const std::string &dominio, const std::vector<std::string> &ips, const std::vector<std::string> &dominios); //por implementar
 
 };
 
